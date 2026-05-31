@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const baseURL = import.meta.env.VITE_API_URL || '/api';
+
 const api = axios.create({
-    baseURL: '/api',
+    baseURL,
     withCredentials: true, // Send secure cookies (refreshToken) with requests
 });
 
@@ -24,7 +26,7 @@ api.interceptors.response.use(
             originalRequest._retry = true;
             try {
                 // Request a new access token using the HttpOnly refresh token cookie
-                const res = await axios.post('/api/auth/refresh', {}, { withCredentials: true });
+                const res = await axios.post(`${baseURL}/auth/refresh`, {}, { withCredentials: true });
                 const { token } = res.data;
                 
                 // Update local storage and request headers

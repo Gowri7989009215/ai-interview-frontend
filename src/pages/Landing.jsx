@@ -45,7 +45,7 @@ function Landing() {
                                     <span className="w-3 h-3 rounded-full bg-amber-500"></span>
                                     <span className="w-3 h-3 rounded-full bg-emerald-500"></span>
                                 </div>
-                                <div className="px-3 py-1 bg-white/10 rounded-lg text-xs font-mono text-white/70">http://localhost:5173/interview</div>
+                                <div className="px-3 py-1 bg-white/10 rounded-lg text-xs font-mono text-white/70">{window.location.origin}/interview</div>
                             </div>
                             
                             <div className="my-auto z-10 max-w-xl space-y-4">
